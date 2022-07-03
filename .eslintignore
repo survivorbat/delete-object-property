@@ -1,0 +1,10 @@
+node_modules/**
+*.json
+coverage/**
+nyc-output/**
+reports/**
+dist/**
+*.log
+*.js
+*.d.ts
+.taskkey
