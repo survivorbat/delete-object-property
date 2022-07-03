@@ -1,5 +1,5 @@
 import { deleteProperties } from './index';
-import {NotAnObjectError} from "./errors";
+import { NotAnObjectError } from './errors';
 
 describe('deleteProperties', () => {
   const testData = [
@@ -20,32 +20,24 @@ describe('deleteProperties', () => {
     // A simple property delete inside an array
     {
       data: <any>[
-          {foo: 1, baz: 2},
-          {foo: 3, baz: 4},
-          {foo: 5, baz: 6},
+        { foo: 1, baz: 2 },
+        { foo: 3, baz: 4 },
+        { foo: 5, baz: 6 },
       ],
-      expected: <any>[
-          {baz: 2},
-          {baz: 4},
-          {baz: 6},
-      ],
+      expected: <any>[{ baz: 2 }, { baz: 4 }, { baz: 6 }],
       deletes: ['foo'],
     },
     // A simple property delete inside a deeper array
     {
       data: <any>{
         bar: [
-          {foo: 1, baz: 2},
-          {foo: 3, baz: 4},
-          {foo: 5, baz: 6},
+          { foo: 1, baz: 2 },
+          { foo: 3, baz: 4 },
+          { foo: 5, baz: 6 },
         ],
       },
       expected: <any>{
-        bar: [
-          {baz: 2},
-          {baz: 4},
-          {baz: 6},
-        ]
+        bar: [{ baz: 2 }, { baz: 4 }, { baz: 6 }],
       },
       deletes: ['bar.foo'],
     },
@@ -157,12 +149,7 @@ describe('deleteProperties', () => {
     });
   });
 
-  const nonObjects = [
-    1,
-    'yes',
-    false,
-    0.534,
-  ];
+  const nonObjects = [1, 'yes', false, 0.534];
 
   nonObjects.forEach((input) => {
     it(`throws a NotAnObjectError on non-object input`, () => {
@@ -172,5 +159,5 @@ describe('deleteProperties', () => {
       // Arrange
       expect(result).toThrowError(NotAnObjectError);
     });
-  })
+  });
 });

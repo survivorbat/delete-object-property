@@ -1,2 +1,1 @@
-export class NotAnObjectError extends Error {
-}
+export class NotAnObjectError extends Error {}

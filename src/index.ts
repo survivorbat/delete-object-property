@@ -3,12 +3,9 @@
  * @param data
  * @param deletes A list of properties
  */
-import {NotAnObjectError} from "./errors";
+import { NotAnObjectError } from './errors';
 
-const deleteProperty = (
-  data: any,
-  deletes: string[],
-): Record<string, any> => {
+const deleteProperty = (data: any, deletes: string[]): Record<string, any> => {
   // In case we get an array, we need to recursively loop through every element as well.
   if (Array.isArray(data)) {
     return data.map((element) => deleteProperty(element, deletes));
