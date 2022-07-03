@@ -13,6 +13,8 @@ Several other packages already exist for this purpose, but I wanted my own :)
 
 ## 📋 Usage
 
+Works with both objects and arrays.
+
 ```typescript
 const object = {
   foo: 'bar',

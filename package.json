@@ -1,6 +1,6 @@
 {
   "name": "delete-object-property",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Use strings to delete properties from a complex object",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -10,7 +10,8 @@
     "fmt": "prettier --write . && eslint --fix .",
     "lint": "eslint .",
     "pretest": "npm run clean",
-    "test": "jest ."
+    "test": "jest .",
+    "live-test": "jest --watchAll"
   },
   "repository": {
     "type": "git",

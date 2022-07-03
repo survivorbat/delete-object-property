@@ -1,4 +1,5 @@
 import { deleteProperties } from './index';
+import {NotAnObjectError} from "./errors";
 
 describe('deleteProperties', () => {
   const testData = [
@@ -15,6 +16,38 @@ describe('deleteProperties', () => {
       },
       expected: <any>{},
       deletes: ['foo'],
+    },
+    // A simple property delete inside an array
+    {
+      data: <any>[
+          {foo: 1, baz: 2},
+          {foo: 3, baz: 4},
+          {foo: 5, baz: 6},
+      ],
+      expected: <any>[
+          {baz: 2},
+          {baz: 4},
+          {baz: 6},
+      ],
+      deletes: ['foo'],
+    },
+    // A simple property delete inside a deeper array
+    {
+      data: <any>{
+        bar: [
+          {foo: 1, baz: 2},
+          {foo: 3, baz: 4},
+          {foo: 5, baz: 6},
+        ],
+      },
+      expected: <any>{
+        bar: [
+          {baz: 2},
+          {baz: 4},
+          {baz: 6},
+        ]
+      },
+      deletes: ['bar.foo'],
     },
     // Deleting a deep property that doesn't exist
     {
@@ -123,4 +156,21 @@ describe('deleteProperties', () => {
       expect(result).toEqual(expected);
     });
   });
+
+  const nonObjects = [
+    1,
+    'yes',
+    false,
+    0.534,
+  ];
+
+  nonObjects.forEach((input) => {
+    it(`throws a NotAnObjectError on non-object input`, () => {
+      // Act
+      const result = () => deleteProperties(input);
+
+      // Arrange
+      expect(result).toThrowError(NotAnObjectError);
+    });
+  })
 });
