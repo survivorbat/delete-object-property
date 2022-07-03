@@ -5,6 +5,7 @@
 ![GitHub](https://img.shields.io/github/license/survivorbat/delete-property)
 
 Small utility to remove a property from a complex object using strings.
+Several other packages already exist for this purpose, but I wanted my own :)
 
 ## ⬇️ Installation
 

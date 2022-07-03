@@ -1,5 +1,5 @@
 {
-  "name": "delete-property",
+  "name": "delete-object-property",
   "version": "0.0.0",
   "description": "Use strings to delete properties from a complex object",
   "main": "dist/index.js",

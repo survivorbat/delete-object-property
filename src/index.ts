@@ -20,6 +20,7 @@ const deleteProperty = (
     return data;
   }
 
+  // Recursive delete
   return {
     ...data,
     [toDelete]: deleteProperty(data[toDelete], deletes.slice(1)),
@@ -35,6 +36,7 @@ export const deleteProperties = (
   data: Record<string, any>,
   ...deletes: string[]
 ): Record<string, any> => {
+  // Loop through all the deletes and use the return value in the next
   return deletes.reduce(
     (result, toDelete) => deleteProperty(result, toDelete.split('.')),
     data,
