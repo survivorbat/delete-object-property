@@ -1,10 +1,10 @@
+import { NotAnObjectError } from './errors';
+
 /**
  * Recursive solution to allow complex objects to be used in the deletion.
  * @param data
  * @param deletes A list of properties
  */
-import { NotAnObjectError } from './errors';
-
 const deleteProperty = (data: any, deletes: string[]): Record<string, any> => {
   // In case we get an array, we need to recursively loop through every element as well.
   if (Array.isArray(data)) {

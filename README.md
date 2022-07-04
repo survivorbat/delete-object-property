@@ -1,4 +1,4 @@
-# 🪠 Delete Object Property
+# 🗑️ Delete Object Property
 
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/survivorbat/delete-object-property/deploy)
 ![npm](https://img.shields.io/npm/dt/delete-object-property)
